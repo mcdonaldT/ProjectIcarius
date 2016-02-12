@@ -45,6 +45,7 @@ grid_path = mp_grid_create(0, 0, width, height, CELL_WIDTH, CELL_HEIGHT);
 ds_grid_set_region(grid, 0, 0, width-1, height-1, VOID);
 
 // Get the seed to load a room
+/*
 if( show_question("Do you have a room seed?")){
     var key = get_string("What is the room seed?","");
     ini_open("Save.ini");
@@ -53,9 +54,9 @@ if( show_question("Do you have a room seed?")){
 } else{
     randomize();
 }
-
+*/
 //Randomize the world
-//randomize();
+randomize();
 
 //Create the controller in the center of the grid
 var cx = width div 2;
@@ -103,7 +104,7 @@ for(var yy=1; yy&lt;height-1;yy++){
     
     }
 }
-//Add the walls
+//Add the walls and remove single walls
 for(var yy=1; yy&lt;height-1;yy++){
     for(var xx=1;xx&lt;width-1;xx++){
         if(grid[# xx, yy] == WALL &amp;&amp; grid[# xx+1, yy] == FLOOR  &amp;&amp; grid[# xx-1, yy] == FLOOR  &amp;&amp; grid[# xx, yy+1] == FLOOR  &amp;&amp; grid[# xx, yy-1] == FLOOR ){
@@ -114,7 +115,7 @@ for(var yy=1; yy&lt;height-1;yy++){
     
     }
 }
-// Draw the level usind the grid
+// Draw the level using the grid
 for(var yy=0; yy&lt;height;yy++){
     for(var xx=0; xx&lt;width; xx++){
         if(grid[# xx, yy] == FLOOR){
@@ -129,7 +130,9 @@ for(var yy=0; yy&lt;height;yy++){
               instance_create(ex,ey, Enemy);  
             } 
         } else{
+        //Makes the walls forbidden to the motion planning path finding grid
             mp_grid_add_cell(grid_path, xx, yy);
+            physics_fixture_create();
         }
     
     }

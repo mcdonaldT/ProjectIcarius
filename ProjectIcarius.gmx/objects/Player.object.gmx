@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Player Stats
+event_inherited();
 spd =3;
 image_speed = 0;
 scr_get_input();
@@ -68,8 +69,8 @@ script_execute(state);
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>0</PhysicsObjectShape>
-  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
+  <PhysicsObjectDensity>0.75</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
   <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
@@ -78,7 +79,9 @@ script_execute(state);
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>7,10</point>
-    <point>10,10</point>
+    <point>2,10</point>
+    <point>12,10</point>
+    <point>12,18</point>
+    <point>2,18</point>
   </PhysicsShapePoints>
 </object>
